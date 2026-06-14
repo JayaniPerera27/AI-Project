@@ -1,0 +1,13 @@
+.env
+.streamlit/secrets.toml
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+models/bert/final/*
+models/bert/checkpoints/
+models/word2vec/*
+models/*.joblib
+!models/README.md
+

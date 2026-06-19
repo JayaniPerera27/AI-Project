@@ -2,7 +2,7 @@
 
 A Streamlit web application for the AI-Powered Job Description Analyzer and
 Resume Screener project. It accepts a resume and job description, extracts
-skills, calculates match signals, and produces an explainable feedback report.
+skills, calculates match signals, and produces an explainable feedback report related to the uploaded resume.
 
 ## Run the application
 

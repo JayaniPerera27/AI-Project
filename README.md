@@ -15,7 +15,7 @@ streamlit run app.py
 
 Then open `http://localhost:8501`
 
-The application works without trained models using a TF-IDF fallback. It
+The application works without trained models using a TF-IDF fallback.It
 automatically enables trained models when their artifacts are added.
 
 ## Add trained Colab models

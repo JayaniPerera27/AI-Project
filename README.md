@@ -1,4 +1,4 @@
-# ResumeFit AI
+# AI-Powered Job Description Analyzer and Resume Screener
 
 A Streamlit web application for the AI-Powered Job Description Analyzer and
 Resume Screener project. It accepts a resume and job description, extracts

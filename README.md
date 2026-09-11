@@ -74,9 +74,10 @@ app will still run with the TF-IDF fallback and skill matching.
 3. Click **Create app**.
 4. Select your GitHub repository, branch, and set the main file path to
    `app.py`.
-5. In **Advanced settings**, choose a supported Python version and add secrets
+5. The included `runtime.txt` pins the cloud app to Python 3.12.
+6. In **Advanced settings**, add secrets
    only if needed.
-6. Click **Deploy**.
+7. Click **Deploy**.
 
 Optional secret for AI feedback:
 

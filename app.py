@@ -165,10 +165,10 @@ with st.sidebar:
     st.divider()
 
     status = model_status()
-    st.markdown("**Artifact status**")
+    st.markdown("**Optional model status**")
     for name, available in status.items():
         state_class = "status-on" if available else "status-off"
-        state_text = "Ready" if available else "Missing"
+        state_text = "Ready" if available else "Using fallback"
         st.markdown(
             f'<div class="status-row"><span>{name}</span><span class="{state_class}">{state_text}</span></div>',
             unsafe_allow_html=True,
@@ -180,6 +180,8 @@ with st.sidebar:
         value=bool(os.getenv("OPENAI_API_KEY")),
         help="Requires OPENAI_API_KEY in the .env file.",
     )
+    if not os.getenv("OPENAI_API_KEY"):
+        st.caption("OpenAI feedback is off until OPENAI_API_KEY is added in app secrets.")
     st.caption("All scores are decision support only. A human reviewer must make final hiring decisions.")
 
 

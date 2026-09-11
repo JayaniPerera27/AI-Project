@@ -36,7 +36,7 @@ st.markdown(
         --red: #a33a3a;
     }
     .stApp { background: #f7f9f8; color: var(--ink); }
-    .block-container { max-width: 1320px; padding-top: 2.2rem; padding-bottom: 3rem; }
+    .block-container { max-width: 1320px; padding-top: 4.5rem; padding-bottom: 3rem; }
     h1, h2, h3 { letter-spacing: 0 !important; color: var(--ink); }
     h1 { font-size: 2.2rem !important; font-weight: 720 !important; }
     h2 { font-size: 1.35rem !important; }
@@ -59,8 +59,9 @@ st.markdown(
         border-radius: 7px;
     }
     .app-kicker {
-        color: var(--green); font-size: .78rem; font-weight: 700;
-        text-transform: uppercase; margin-bottom: .35rem;
+        display: block; color: var(--green); font-size: .78rem; font-weight: 700;
+        line-height: 1.35; text-transform: uppercase; margin-bottom: .35rem;
+        overflow: visible; white-space: normal;
     }
     .app-subtitle { color: var(--muted); margin-top: -.6rem; margin-bottom: 1.4rem; }
     .status-row {

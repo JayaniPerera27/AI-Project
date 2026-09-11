@@ -1,4 +1,5 @@
 from functools import lru_cache
+from importlib.util import find_spec
 
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -23,6 +24,8 @@ def load_tfidf_model():
 def load_word2vec_model():
     if not WORD2VEC_MODEL_PATH.exists():
         return None
+    if find_spec("gensim") is None:
+        return None
     from gensim.models import Word2Vec
     return Word2Vec.load(str(WORD2VEC_MODEL_PATH))
 
@@ -30,6 +33,8 @@ def load_word2vec_model():
 @lru_cache(maxsize=1)
 def load_bert_model():
     if not BERT_MODEL_DIR.exists() or not (BERT_MODEL_DIR / "config.json").exists():
+        return None, None, None
+    if find_spec("torch") is None or find_spec("transformers") is None:
         return None, None, None
 
     import torch
@@ -126,8 +131,12 @@ def score_resume(resume_text, job_description, skill_coverage):
 
 def model_status():
     return {
-        "BERT": BERT_MODEL_DIR.exists() and (BERT_MODEL_DIR / "config.json").exists(),
-        "Word2Vec": WORD2VEC_MODEL_PATH.exists(),
+        "BERT": (
+            BERT_MODEL_DIR.exists()
+            and (BERT_MODEL_DIR / "config.json").exists()
+            and find_spec("torch") is not None
+            and find_spec("transformers") is not None
+        ),
+        "Word2Vec": WORD2VEC_MODEL_PATH.exists() and find_spec("gensim") is not None,
         "Trained TF-IDF": TFIDF_MODEL_PATH.exists(),
     }
-
